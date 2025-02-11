@@ -1,0 +1,30 @@
+﻿@using RiskApp.Models;
+@{
+}
+
+<h1>Hello</h1>
+<img src="/assets/hands-helping-solid.svg" />
+<table style="background-color: #363f55">
+
+    @foreach (Company company in Model.companies)
+    {
+
+        string companyImg = $"/assets/companylogo/{company.Logo}";
+        <tr>
+            <td>
+                @company.Name
+            </td>
+            <td>
+            </td>
+            <td>
+                <img style="width:100px; padding:10px" src=@companyImg />
+            </td>
+            <td>
+                @company.Logo <br />
+                @company.DomainName <br />
+                @company.Id
+
+            </td>
+        </tr>
+    }
+</table>

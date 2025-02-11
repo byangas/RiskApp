@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Send Registration Code";
+}
+
+<div class="totally-centered" >
+    <img src="/assets/logo.svg" style="max-width:400px" />
+    <div style="padding:20px;max-width:400px">
+        
+        RiskMinute.com requires that you register with a valid work email account. To verify your email address a registration code will be sent to your work email.
+        Please enter a valid work email to send the registration code to.
+    </div>
+    <p> </p>
+    <form method="post">
+        <div style="text-align:left">
+            <label class="input-label">Email</label>
+            <input class="input-text" type="text" name="email" />
+        </div>
+
+
+        <input type="submit" class="btn-primary" value="Email Me Registration Code" />
+    </form>
+
+    <div>
+        @foreach (var message in Model.messages)
+        {
+            <H1>@message.Display</H1>
+        }
+    </div>
+    <p></p>
+    <div>Already have your registration code? Click <a style="color:gray" class="btn" href="/account/register">here</a> to create account.</div>
+</div>

@@ -1,0 +1,41 @@
+﻿
+@using System.Text.Json;
+@using System.Collections.Generic;
+@using RiskApp.Models.Broker;
+@{
+    Layout = "/Views/EmailTemplates/Shared/_Layout.cshtml";
+    string linkToMessageResponse = $"{Model.baseUrl}/message/{Model.messageId}";
+}
+
+<table style="text-align:center;width:100%;background:white" width="100%" border="0">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr class="message">
+        <td>
+            @Model.message
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr class="message-from">
+        <td>
+            @Model.user.Name from @Model.user.Company.Name
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="@linkToMessageResponse" class="btn">Click Here To Respond</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+

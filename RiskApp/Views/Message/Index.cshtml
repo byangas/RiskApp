@@ -1,0 +1,31 @@
+﻿@using RiskApp.Models
+
+@model MessageView
+@{
+}
+
+<div class="container">
+    <div class="tile">
+        <div class="tile-title">Message</div>
+        <div class="tile-content">
+
+            <div>
+                <div style="text-align:center">
+                    <div>@Model.Message.MessageContent</div>
+                    <div class="message-from">@Model.SentBy</div>
+                </div>
+                <p> </p>
+                <form action="/message/@Model.Message.Id/" method="post">
+                    <div>
+                        <div class="input-label">Write your response here</div>
+                        <textarea name="reply"  class="input-text-area"></textarea>
+                    </div>
+                    <p></p>
+                    <button class="btn">Reply</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

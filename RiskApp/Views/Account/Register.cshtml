@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Create Account";
+}
+
+
+
+<div class="totally-centered">
+    <img src="/assets/logo.svg" style="max-width:400px" />
+    @foreach (var message in Model.messages)
+    {
+        <H1>@message.Display</H1>
+    }
+    <div class="tile-round" style="text-align:left;min-width:300px">
+        <form method="post">
+            <div>Create New Account</div>
+
+            <div>
+                <label class="input-label">Email </label>
+                <input class="input-text" type="text" value="@Model.email" name="email" />
+            </div>
+            <div>
+                <label class="input-label">Registration Code</label>
+                <input class="input-text" type="text" value="@Model.code" name="code" />
+            </div>
+            <div>
+                <label class="input-label">First Name</label>
+                <input class="input-text" type="text" value="@Model.firstName" name="firstName" placeholder="First Name" />
+            </div>
+            <div>
+                <label>
+                    Last Name
+                </label>
+                <input type="text" value="@Model.lastName" name="lastName" placeholder="Last Name" />
+            </div>
+
+            <div>
+                <label>
+                    Phone
+                </label>
+                <input type="tel" name="phone" value="@Model.phone" placeholder="Enter the number you prefer to be contacted at." />
+            </div>
+
+            <div>
+                <label>
+                    Password
+                </label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <input type="submit" value="Create Account" class="btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

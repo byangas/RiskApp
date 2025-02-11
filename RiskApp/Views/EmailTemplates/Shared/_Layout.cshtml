@@ -1,0 +1,192 @@
+﻿
+<html>
+
+<head>
+    <style type="text/css">
+        @@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+        .BODY {
+            font-family: 'Nunito', sans-serif;
+            color: #242E42;
+            background: #91a3b0;
+            -ms-high-contrast-adjust: none;
+        }
+
+
+        .Name {
+            font-size: 18px;
+            padding: 18px;
+        }
+
+
+        .container {
+            margin: 0px 10% 0px 10%;
+            max-width: 600px;
+            background: white;
+        }
+
+        @@media (min-width: 800px) {
+            .container {
+                max-width: 700px;
+            }
+        }
+
+        @@media (min-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+        }
+
+        .message {
+            padding-top: 12px;
+            text-align: center;
+        }
+
+        .message-from {
+            color: rgba(200, 200, 200, 0.90);
+            font-size: 12px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 25px;
+            background: #242E42;
+            height: 150px;
+        }
+
+        .main-body {
+            background: white;
+            padding: 9px 9px 24px 9px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            color: whitesmoke;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #242E42;
+            border: 1px solid black;
+            padding: 6px;
+            font-size: 1rem;
+            border-radius: 3px;
+
+            width: 195px;
+        }
+
+        @@media print {
+            .btn {
+                display:none;
+            }
+
+            .footer {
+                display:none;
+                visibility:hidden;
+            }
+
+            .header {
+                display: none;
+            }
+           
+        }
+
+
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .input-container {
+            margin-left: 6px;
+        }
+
+        .input-div {
+            margin-top: 6px;
+            margin-bottom: 0px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 14px;
+            text-transform: uppercase;
+            color: #B0BAC9;
+            display: block;
+        }
+
+        .input-text {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            border: 0px;
+            width: 100%;
+        }
+
+        .section-header {
+  
+            font-size: 18px;
+            line-height: 18px;
+            border-bottom: 1px solid grey;
+        }
+
+        .insurance-created {
+            padding-top: 5px;
+        }
+
+        .section-container {
+        }
+
+        .footer {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 14px;
+            padding: 20px;
+            text-align: center;
+            background: #242E42;
+            height: 100px;
+        }
+
+        .risk-info {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin: 10px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body class="body" style="margin: 0px;">
+
+    <div class="container">
+        <div class="header">
+            <div>
+
+                <img src="https://app.riskminute.com/assets/logo.svg" style="height: 130px; width: 130px; vertical-align: text-bottom" />
+
+            </div>
+                <div style="font-size:10px;text-align:center;">    <a style="color: white; text-decoration: underline" href="https://www.riskminute.com">Powered by RiskMinute.com</a></div>
+        </div>
+        <p style="background:white">
+            <div class="main-body" >
+
+                @RenderBody()
+            </div>
+        </p>
+        <div class="footer">
+            What is RiskMinute.com?
+            <div>
+                Sign up with us to easily manage and respond<br> directly on our app.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

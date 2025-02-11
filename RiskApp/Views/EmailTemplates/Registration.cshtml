@@ -1,0 +1,11 @@
+﻿@model dynamic
+@{
+    Layout = "/Views/EmailTemplates/Shared/_Layout.cshtml";
+}
+
+<div >
+    <div>You are on your way to saving time and money with Riskminute.com! Your Registration code is @Model.registrationCode. Please enter the registration code online, 
+    or click the button below to continue registration. </div>
+    <a class="btn" href='@Model.baseUrl/account/register/?email=@Model.email&code=@Model.registrationCode'>Continue Registration</a>
+</div>
+

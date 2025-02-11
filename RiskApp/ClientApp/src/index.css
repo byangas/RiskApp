@@ -1,0 +1,396 @@
+
+/* resets */
+BODY, H1, H2, H3 {
+    margin:0;
+    line-height: 1.5;
+}
+button, input, select, textarea {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+BODY {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    color: #FFFFFF;
+    /* Dark/Background */
+    background: #242E42;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+h1 {
+    color: #F16D26;
+}
+
+#root {
+    height: 100%;
+}
+
+.border {
+    border: 1px solid white;
+}
+.clickable {
+
+}
+.clickable:hover {
+    border: 2px solid white;
+}
+.button-bar {
+    margin-top: 9px;
+    margin-bottom: 6px;
+}
+
+.totally-centered {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    text-align: center;
+    height: 90%;
+}
+
+.address {
+    color: #9AACD9;
+    font-size: 15px;
+}
+
+/* Tile styles */
+
+.policy-summary-tile {
+    border: 1px solid grey;
+    border-radius:6px;
+    margin-bottom:9px;
+    padding: 9px;
+}
+
+.tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+.tile-container-centered {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width:1500px;
+}
+
+.tileContent {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.tile {
+    width: 400px;
+    border-radius: 6px;
+    margin: 6px 9px 3px 0px;
+    padding: 0px 0px;
+    background-color: #363f55;
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #363f55;
+    box-shadow: 1px 1px 3px #151621;
+}
+@media screen and (max-width: 1000px) {
+    .tile {
+        width: 350px;
+    }
+}
+
+.tile:hover {
+    border: 1px solid white;
+}
+.tile-no-hover {
+    cursor: default;
+}
+.tile-no-hover:hover {
+    border: 1px solid #363f55;
+}
+
+.tile-title {
+    background: #1d2638;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(200, 200, 200, 0.90);
+    margin: -3px -3px 3px -3px;
+    border-radius: 6px 6px 0px 0px;
+    font-size: 18px;
+    padding: 3px;
+}
+/* End Tile styles */
+
+.btn-inline {
+    padding:3px;
+    line-height: 1;
+    border-radius: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.modal-content {
+    background-color: black !important;
+}
+
+.market-button-bar {
+    padding: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.market-button-bar button {
+    width: 150px;
+}
+
+.insurance-title {
+    background: #1d2638;
+    color: rgba(200, 200, 200, 0.90);
+    margin: -3px;
+    border-radius: 6px 6px 0px 0px;
+    font-size: 14px;
+    padding: 3px;
+}
+
+.insurance-label {
+    padding-top: 0px;
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 1.125px;
+    text-transform: uppercase;
+    color: #B0BAC9;
+    display: block;
+}
+
+.insurance-created {
+    padding-top: 5px;
+}
+
+.insurance-header {
+    COLOR: ORANGE;
+    height: 100%;
+    padding-top: 8px;
+}
+
+.insurance-tile-content {
+    padding: 3px;
+    color: #e3e2e2;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+
+.checkbox_holder {
+    margin-top: 10px;
+}
+
+
+.statusbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkslategray;
+    padding: 3px;
+    border-radius: 3px 3px 0px 0px;
+    width: auto;
+}
+
+.errors {
+    color:red;
+}
+.formSection {
+    transition-delay: 0s;
+    transition: all 1000ms ease-in;
+}
+
+.tips {
+    font-size: 11px;
+    color: rgba(184, 200, 215, 0.95);
+    margin-top: -3px;
+    margin-bottom: 3px;
+}
+
+.input-label {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 1.125px;
+    text-transform: uppercase;
+    color: #B0BAC9;
+    display: block;
+}
+
+.input-text {
+    padding: 3px;
+    margin-bottom: 9px;
+    font-family: Rubik;
+    min-height: 18px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.125px;
+    color: #FFFFFF;
+    border: 0px;
+    display: block;
+    width: 100%;
+    /* Dark/Darkest */
+    background: #131A27;
+    border-radius: 6px;
+}
+
+.section-header {
+    margin: 18px -6px;
+    padding: 6px;
+    font-size: 18px;
+    line-height: 18px;
+    border-bottom: 1px solid grey;
+}
+
+.input-text-area {
+    padding: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 1.125px;
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    border: 0px;
+    /* Dark/Darkest */
+    background: #131A27;
+    border-radius: 6px;
+}
+
+.checkbox_holder {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.checkbox_holder label {
+    margin: 3px;
+}
+
+.btn-icon {
+    vertical-align:  middle;
+    text-align: center;
+    width:21px;
+    padding:1px;
+    box-sizing: content-box;
+}
+
+/* navigation*/
+
+
+.nav-icon {
+    vertical-align: middle;
+    text-align: center;
+    width:27px;
+    margin:3px;
+    padding:3px;
+    box-sizing: content-box;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+    align-content: center;
+    border-bottom: 1px solid #363F55;
+}
+
+.container {
+    height: 100%;
+}
+
+.logoImg {
+    height: 50px;
+    width: 70px;
+    margin-right: 10px;
+}
+
+.profile-pic {
+    height: 37px;
+    margin-top: 5px;
+}
+
+/*** marketing contact ****/
+.marketing-contact-notes {
+    background-color: lightgray;
+    border-radius: 0px;
+    color:black;
+    padding:6px;
+    border: #1d2638 solid 1px;
+}
+.marketing-contact-add {
+    border: 1px solid white;
+    margin-bottom: 6px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+.marketing-contact-message {
+    background-color: lightblue;
+    border-radius: 12px;
+    color:black;
+    padding:6px;
+    margin-right: 20px;
+    margin-bottom: 6px;
+    border: #1d2638 solid 1px;
+    box-shadow: 1px 1px 3px #151621;
+}
+.marketing-contact-message-title {
+    font-weight: bold;
+}
+
+.marketing-contact-message-received {
+    background-color: lightgray;
+    border-radius: 12px;
+    color:black;
+    padding:6px;
+    margin: 6px 6px 6px 20px  ;
+    border: #1d2638 solid 1px;
+    box-shadow: 1px 1px 3px #151621;
+}
+
+.add-broker-contact {
+    width:100%;
+    border: white solid 1px;
+}
+
+.add-broker-contact:hover {
+    border: white solid 2px;
+}
+
+.message-from {
+    color: rgba(200, 200, 200, 0.90);
+    font-size: 12px;
+}
+

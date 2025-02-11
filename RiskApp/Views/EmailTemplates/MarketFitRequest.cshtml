@@ -1,0 +1,56 @@
+﻿
+@using System.Text.Json;
+@using System.Collections.Generic;
+@using RiskApp.Models.Broker;
+@{
+    Layout = "/Views/EmailTemplates/Shared/_Layout.cshtml";
+    var linkToAccept = $"{Model.baseUrl}/appetitefitrequest/{Model.messageId}/accept";
+    var linkToReject = $"{Model.baseUrl}/appetitefitrequest/{Model.messageId}/reject";
+    var linkToWebView = $"{Model.baseUrl}/appetitefitrequest/{Model.messageId}/view";
+
+}
+
+<div class="message">
+    <div class="intro">
+        @Model.message
+    </div>
+    <div class="name">
+        @Model.user.Name <br /> @Model.user.Company.Name
+    </div>
+    <div>
+        <a class="btn" style="width:195px" href="@linkToAccept">Yes, please apply</a>
+
+        <a class="btn" style="width:195px" href="@linkToReject">Not interested, Thank you</a>
+    </div>
+    &nbsp;
+    <div style="padding-top:10px;">Trouble viewing this email? Click <a href="@linkToWebView">HERE</a> to view in browser.</div>
+</div>
+
+
+
+@{
+    await Html.RenderPartialAsync("BrokerAccount", (Customer)Model.account);
+}
+
+@if (!string.IsNullOrEmpty(Model.policyNotes))
+{
+<table style="background:white;width:100%" border="0" class="section-container">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="section-header">
+            Policy Notes and Additional Information
+        </td>
+    </tr>
+    <tr>
+        <td class="input-text">&nbsp;&nbsp;&nbsp;@Model.policyNotes</td>
+    </tr>
+</table>
+}
+
+@{
+    // casting the 'model' to Object since it can't be "dynamic".
+    // This is just to satisfy the compiler though, since the Partial view doesn't care and is fine with a dynamic type
+    await Html.RenderPartialAsync("Policy", (object)Model.insurance);
+}

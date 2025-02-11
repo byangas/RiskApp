@@ -1,0 +1,364 @@
+﻿@using RiskApp.Models.User;
+
+@{
+    var insurance = Model;
+}
+
+@functions{
+    string formatNumber(int number)
+    {
+        //return string.Format("{0:N0}", number);
+        return number.ToString("N0");
+    }
+}
+
+
+@if (insurance.ContainsKey("workersComp"))
+{
+    var workersComp = insurance["workersComp"];
+
+    <table style="background:white;width:100%" border="0" class="section-container">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="section-header">
+                Workers Comp
+            </td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Governing Class Code</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@workersComp["governingClassCode"]</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Payroll</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(workersComp["payroll"]) </td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Mod </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@workersComp["mod"]</td>
+        </tr>
+
+        @if (workersComp.ContainsKey("additionalInformation"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@workersComp["additionalInformation"]</td>
+            </tr>
+        }
+    </table>
+}
+
+@if (insurance.ContainsKey("commercialAuto"))
+{
+    var commercialAuto = (Dictionary<string, dynamic>)insurance["commercialAuto"];
+
+    <table style="background:white;width:100%" border="0" class="section-container">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="section-header">
+                Commercial Auto
+            </td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Total Vehicles </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(commercialAuto["totalVehicles"])</td>
+        </tr>
+        @if (commercialAuto.ContainsKey("privatePassenger"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Private Passenger </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(commercialAuto["privatePassenger"])</td>
+            </tr>
+        }
+        @if (commercialAuto.ContainsKey("lightTrucks"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Light Trucks</td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(commercialAuto["lightTrucks"])</td>
+            </tr>
+        }
+
+        @if (commercialAuto.ContainsKey("heavyTrucks"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Heavy Trucks</td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(commercialAuto["heavyTrucks"])</td>
+            </tr>
+        }
+
+        @if (commercialAuto.ContainsKey("travelRadius"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Travel Radius</td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialAuto["travelRadius"]</td>
+            </tr>
+        }
+
+        @if (commercialAuto.ContainsKey("additionalInformation"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialAuto["additionalInformation"]</td>
+            </tr>
+        }
+    </table>
+}
+
+@if (insurance.ContainsKey("commercialProperty"))
+{
+    var commercialProperty = insurance["commercialProperty"];
+    var leased = commercialProperty.ContainsKey("leased");
+
+<table style="background:white;width:100%" border="0" class="section-container">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="section-header">
+            Commercial Property
+        </td>
+    </tr>
+    @if (!leased)
+    {
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Building Is Owned </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;Yes</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Square Footage</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(commercialProperty["squareFootage"])</td>
+        </tr>
+
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Construction Type</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialProperty["constructionType"]</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Roof Type</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialProperty["roofType"]</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Sprinklered</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialProperty["sprinklered"]</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Building Replacement Costs </td>
+        </tr>
+
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(commercialProperty["personalPropertyReplacementCosts"])</td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Building Is Leased </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;Yes</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Personal Property Replacement Costs </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(commercialProperty["replacementCosts"])</td>
+        </tr>
+
+    }
+    @if (commercialProperty.ContainsKey("additionalInformation"))
+    {
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@commercialProperty["additionalInformation"]</td>
+        </tr>
+    }
+
+</table>
+}
+
+@if (insurance.ContainsKey("generalLiability"))
+{
+    var generalLiability = insurance["generalLiability"];
+
+    <table style="background:white;width:100%" border="0" class="section-container">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="section-header">
+                General Liability
+            </td>
+        </tr>
+
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Gross Sales</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(generalLiability["grossSales"])</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Total Payroll</td>
+
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(generalLiability["totalPayroll"])</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Square Footage</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(generalLiability["squareFootage"])</td>
+        </tr>
+        @if (generalLiability.ContainsKey("additionalInformation"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@generalLiability["additionalInformation"]</td>
+            </tr>
+        }
+    </table>
+}
+
+@if (insurance.ContainsKey("buildersRisk"))
+{
+    var builderRisk = insurance["buildersRisk"];
+
+    <table style="background:white;width:100%" border="0" class="section-container">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="section-header">
+                Builders Risk
+            </td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Building Value</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;$@formatNumber(builderRisk["buildingValue"])</td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Contents Value</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(builderRisk["contentsValue"]) </td>
+        </tr>
+        @if (builderRisk.ContainsKey("additionalInformation"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@builderRisk["additionalInformation"]</td>
+            </tr>
+        }
+    </table>
+}
+
+@if (insurance.ContainsKey("umbrellaLiability"))
+{
+    var umbrella = insurance["umbrellaLiability"];
+
+    <table style="background:white;width:100%" border="0" class="section-container">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="section-header">
+                Umbrella Liability
+            </td>
+        </tr>
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Total Dollar Amount</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@formatNumber(umbrella["totalAmount"])</td>
+        </tr>
+        @if (umbrella.ContainsKey("additionalInformation"))
+        {
+            <tr>
+                <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+            </tr>
+            <tr>
+                <td class="input-text">&nbsp;&nbsp;&nbsp;@umbrella["additionalInformation"]</td>
+            </tr>
+        }
+    </table>
+
+}
+
+@if (insurance.ContainsKey("specialty"))
+{
+    var specialty = insurance["specialty"];
+<table style="background:white;width:100%" border="0" class="section-container">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="section-header">
+            Specialty
+        </td>
+    </tr>
+    <tr>
+        <td class="input-div">&nbsp;&nbsp;&nbsp;Type</td>
+    </tr>
+    <tr>
+        <td class="input-text">&nbsp;&nbsp;&nbsp;@specialty["type"]</td>
+    </tr>
+    @if (specialty.ContainsKey("additionalInformation"))
+    {
+        <!-- optional -->
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@specialty["additionalInformation"] </td>
+        </tr>
+    }
+</table>
+
+}

@@ -1,0 +1,59 @@
+﻿@using RiskApp.Models.Broker
+@{
+    var account = (Customer)Model;
+}
+
+<table style="background:white;width:100%" border="0" class="section-container">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="section-header">
+            Business
+        </td>
+    </tr>
+    <tr>
+        <td class="input-div">&nbsp;&nbsp;&nbsp;Company Name</td>
+    </tr>
+    <tr>
+        <td class="input-text">&nbsp;&nbsp;&nbsp;@account.FirmName</td>
+    </tr>
+    <tr>
+        <td class="input-div">&nbsp;&nbsp;&nbsp;Address</td>
+    </tr>
+    <tr>
+        <td class="input-text">&nbsp;&nbsp;&nbsp;@account.Address  @account.City, @account.State @account.Zip</td>
+    </tr>
+    <tr>
+        <td class="input-div">&nbsp;&nbsp;&nbsp;Industry</td>
+    </tr>
+    <tr>
+        <td class="input-text">&nbsp;&nbsp;&nbsp;@account.Industry</td>
+    </tr>
+
+    @if (!string.IsNullOrEmpty(account.IndustryDetail))
+    {
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Industry - Additional Information</td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@account.IndustryDetail</td>
+        </tr>
+    }
+
+    @if (!string.IsNullOrEmpty(account.AdditionalInformation))
+    {
+        <tr>
+            <td class="input-div">&nbsp;&nbsp;&nbsp;Additional Information </td>
+        </tr>
+        <tr>
+            <td class="input-text">&nbsp;&nbsp;&nbsp;@account.AdditionalInformation</td>
+        </tr>
+
+    }
+
+</table>
+
+
+
+

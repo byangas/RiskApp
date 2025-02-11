@@ -1,0 +1,42 @@
+﻿@model List<RiskApp.Models.System.ResponseMessage>
+
+<div class="totally-centered">
+
+    <img src="/assets/logo.svg" style="max-width:400px" />
+
+    @foreach (var message in Model)
+    {
+        <H1>@message.Display</H1>
+    }
+    <div style="max-width:400px">
+
+        <div class="tile-round">
+            <form method="post">
+                <div>Please login to you RiskMinute.com account</div>
+                <div>
+                    <label class="input-label">UserName</label>
+                    <input class="input-text" type="text" name="userName" id="userName" />
+                </div>
+                <div>
+                    <label class="input-label">
+                        Password
+                    </label>
+                    <input class="input-text" type="password" name="password" id="password" />
+                </div>
+
+                <div>
+                    <input type="submit" class="btn-primary" value="Log In" />
+                </div>
+
+            </form>
+        </div>
+        <p></p>
+        <p>Don't have a RiskMinute.com account? Register using your work email address. You must work in the insurance industry for a carrier or brokerage.</p>
+        <form method="get" action="~/Account/SendRegistrationCode">
+            <div>
+                <input type="submit" class="btn-primary" value="Register for RiskMinute" />
+            </div>
+        </form>
+    </div>
+</div>
+
